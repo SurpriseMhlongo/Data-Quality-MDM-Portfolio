@@ -34,7 +34,8 @@ Predicts fire risks using meteorological data from Algeria (2012). Includes:
 Dataset Source:  
 [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/547/algerian+forest+fires+dataset)  
 
-
+## Explore the project:##  
+📊 [Kaggle Notebook](https://www.kaggle.com/code/surprisemhlongo/data-quality-mdm-portfolio/) (Interactive Analysis)  
 
 
 
