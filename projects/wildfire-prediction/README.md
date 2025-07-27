@@ -30,15 +30,19 @@ Predicts fire risks using meteorological data from Algeria (2012). Includes:
   - `FireData_Cleaned.csv` (processed)
 - `requirements.txt`: Python dependencies
 
-## 🚀 Setup
-```bash
-pip install -r requirements.txt
-jupyter notebook notebook.ipynb
+## 📜 Dataset Citation  
+Dataset Source:  
+[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/547/algerian+forest+fires+dataset)  
 
-@misc{abid2019algerian,
-  author = {Abid, A.},
-  title = {Algerian Forest Fires Dataset},
-  year = {2019},
-  publisher = {UCI Machine Learning Repository},
-  doi = {10.24432/C5KW4N}
+```markdown
+@misc{algerian_forest_fires_2019,  
+  author = {Abid, A.},  
+  title = {Algerian Forest Fires Dataset},  
+  year = {2019},  
+  publisher = {UCI Machine Learning Repository},  
+  doi = {10.24432/C5KW4N},  
+  url = {https://doi.org/10.24432/C5KW4N}  
 }
+
+
+
