@@ -54,4 +54,5 @@ How to Read:
 - Raw data available in `/data` folder
 - See notebook for exact generation code
 
-
+## Explore the project:##  
+📊 [Kaggle Notebook](https://www.kaggle.com/code/surprisemhlongo/data-quality-mdm-portfolio/) (Interactive Analysis)  
