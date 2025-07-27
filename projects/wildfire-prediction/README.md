@@ -1,40 +1,64 @@
-# Algerian Wildfire Prediction Project
+# Wildfire Analysis Visualization Guide
 
-## 📌 Overview
-Predicts fire risks using meteorological data from Algeria (2012). Includes:
-- **Data cleaning pipeline** (NULL handling, deduplication, boundary checks)
-- **Automated validation** (4 quality rules)
-- **Risk classification** (K-Means clustering)
-- **FWI prediction model** (Gradient Boosting, R²=0.82)
+## Plot Order & Interpretation
 
-## 🔍 Data Glossary
-| Abbreviation | Full Name                | Range       |
-|--------------|--------------------------|-------------|
-| RH           | Relative Humidity        | 0-100%      |
-| Ws           | Wind Speed               | 0-100+ km/h |
-| FWI          | Fire Weather Index       | 0-100+      |
-| ISI          | Initial Spread Index     | 0-56+       |
+### 2. Weather Distributions Plot 
+**File:** <img width="706" height="493" alt="image" src="https://github.com/user-attachments/assets/0d6948a7-7829-4e01-909f-811105d9ce00" />
+  
+**How to Read:
+- Four histograms (Temperature, RH, Ws, Rain)
+- X-axis: Measurement ranges
+- Y-axis: Frequency of occurrences
+- Shape:
+  - Narrow = Consistent values
+  - Wide = Variable conditions
 
-## ✅ Validation Rules Applied
-| Rule  | Field       | Check                      | Action                 |
-|-------|-------------|----------------------------|------------------------|
-| C-01  | Temperature | No NULLs                   | Median imputation      |
-| V-01  | RH          | 0 ≤ RH ≤ 100               | Capped at boundaries   |
-| U-01  | FireID      | Unique format              | Dropped duplicates     |
-| B-01  | FWI         | FWI ≥ ISI                  | Recalculated (ISI×1.2) |
+### 3. Fire Indices Heatmap
+**File:** <img width="584" height="487" alt="image" src="https://github.com/user-attachments/assets/c18ed287-b697-45df-9228-d136b78f06f5" />
+  
+**How to Read:
+- Matrix showing relationships between:
+  - FFMC, DMC, DC, ISI, BUI, FWI
+- Color Key:
+  - +1.0 (Red): Perfect positive correlation
+  - 0 (White): No relationship
+  - -1.0 (Blue): Inverse relationship
 
-## 📂 Files
-- `notebook.ipynb`: Full analysis (cleaning → modelling)
-- `data/`: 
-  - `FireData.csv` (raw)
-  - `FireData_Cleaned.csv` (processed)
-- `requirements.txt`: Python dependencies
+### 4. Risk Classification Plot
+**File:** <img width="701" height="388" alt="image" src="https://github.com/user-attachments/assets/8642534b-30b4-466b-adc4-849ad78d218e" />
+ 
+**How to Read:
+- X-axis: FWI (Fire Weather Index)
+- Y-axis: ISI (Initial Spread Index)
+- Colored clusters:
+  - Green: Low risk
+  - Yellow: Moderate
+  - Orange: High
+  - Red: Extreme
+- Dotted lines: Official danger thresholds
 
-## 📜 Dataset Citation  
-Dataset Source:  
-[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/547/algerian+forest+fires+dataset)  
+### 5. Feature Importance Plot
+**File:** <img width="596" height="294" alt="image" src="https://github.com/user-attachments/assets/b161c032-2601-466d-a6f9-610a96a41fdd" />
+ 
+**How to Read:
+- Bars show predictive power:
+  - Longer = More important
+- Percentage values: Exact contribution
+- Top predictors listed left-to-right
 
+### Prediction Results
+<img width="525" height="483" alt="image" src="https://github.com/user-attachments/assets/b910d17e-9e60-444a-93bf-7fa553fdaa0e" />
 
+## Data Notes
+- All plots generated from `FireData_Cleaned.csv`
+- Raw data available in `/data` folder
+- See notebook for exact generation code
 
-
-
+## Regeneration
+To recreate all visuals:
+1. Run notebook cells #12-22 sequentially
+2. Export with:
+```python
+plt.savefig('visualizations/[FILENAME].png', 
+            dpi=300,
+            bbox_inches='tight')
