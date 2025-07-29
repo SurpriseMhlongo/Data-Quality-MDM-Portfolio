@@ -1,4 +1,4 @@
-# Wildfire Analysis Visualization Guide
+# Wildfire Analysis Visualisation Guide (TO BE UPDATED, AS CODE CHANGED)
 ##### by Surprise Mhlongo - 27/07/2025
 ## Plot Order & Interpretation
 
